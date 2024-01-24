@@ -17,5 +17,8 @@ COPY / /root
 
 RUN REPEATABLE docker-compose up -d --build --force-recreate --remove-orphans && sleep 6
 
+#run the cypress end to end tests 
+RUN docker-compose exec cypress bash /app/run_tests.sh
+
 EXPOSE WEBSITE localhost:8000
 
